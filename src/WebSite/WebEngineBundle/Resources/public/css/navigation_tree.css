@@ -1,0 +1,24 @@
+.navigation_tree
+{
+    width: 300px;
+    font-size: 125%;
+}
+
+.navigation_tree>ul>li
+{
+    background-color: #ffe7e0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.navigation_tree>ul>li>div, div.jqtree-element
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navigation_tree>ul
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

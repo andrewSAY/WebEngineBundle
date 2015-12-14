@@ -1,0 +1,17 @@
+{% extends 'WebEngineBundle::layout.html.twig' %}
+{% block title %}
+    CMS
+{% endblock %}
+{% block content %}
+    <h2>Новый пункт меню</h2>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('web_engine_cms_navigation') }}" target="">
+                Назад к навигации
+            </a>
+        </li>
+    </ul>
+    <div class="form_no_table">
+        {{ form(form) }}
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+web_engine_cms_navigation:
+    path:     /
+    defaults: { _controller: WebEngineBundle:CMS\Navigation:index }
+web_engine_cms_navigation_create:
+    path:     /create
+    defaults: { _controller: WebEngineBundle:CMS\Navigation:create }
+web_engine_cms_navigation_update:
+    path:     /{id}/update
+    defaults: { _controller: WebEngineBundle:CMS\Navigation:update }
+web_engine_cms_navigation_delete:
+    path:     /{id}/delete
+    defaults: { _controller: WebEngineBundle:CMS\Navigation:delete }
+web_engine_cms_navigation_delete_request:
+    path:     /{id}/delete_request
+    defaults: { _controller: WebEngineBundle:CMS\Navigation:deleteRequest }
+web_engine_cms_navigation_show:
+    path:     /show/{id}
+    defaults: { _controller: WebEngineBundle:CMS\Navigation:show }
+web_engine_cms_navigation_new:
+    path:     /new
+    defaults: { _controller: WebEngineBundle:CMS\Navigation:new }
+web_engine_cms_navigation_edit:
+    path:     /{id}/edit
+    defaults: { _controller: WebEngineBundle:CMS\Navigation:edit }
+web_engine_cms_navigation_move:
+    path:     /navigation_move
+    defaults: { _controller: WebEngineBundle:CMS\Navigation:move }

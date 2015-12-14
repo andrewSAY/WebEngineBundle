@@ -1,0 +1,30 @@
+web_engine_cms_content:
+    path:     /{type}
+    defaults: { _controller: WebEngineBundle:CMS\Content:index }
+web_engine_cms_content_create:
+    path:     /create/{type}
+    defaults: { _controller: WebEngineBundle:CMS\Content:create }
+web_engine_cms_content_update:
+    path:     /{id}/update
+    defaults: { _controller: WebEngineBundle:CMS\Content:update }
+web_engine_cms_content_delete:
+    path:     /{id}/delete
+    defaults: { _controller: WebEngineBundle:CMS\Content:delete }
+web_engine_cms_content_delete_request:
+    path:     /{id}/delete_request
+    defaults: { _controller: WebEngineBundle:CMS\Content:deleteRequest }
+web_engine_cms_content_new:
+    path:     /new/{type}
+    defaults: { _controller: WebEngineBundle:CMS\Content:new }
+web_engine_cms_content_edit:
+    path:     /{id}/edit
+    defaults: { _controller: WebEngineBundle:CMS\Content:edit }
+web_engine_cms_upload_file:
+    path:     /{id}/upload/file
+    defaults: { _controller: WebEngineBundle:CMS\Content:uploadFile }
+web_engine_cms_delete_file:
+    path:     /{id}/file/{filename}/delete
+    defaults: { _controller: WebEngineBundle:CMS\Content:deleteFile }
+web_engine_cms_get_file:
+    path:     /{id}/file/{size}_{filename}
+    defaults: { _controller: WebEngineBundle:CMS\Content:getFile }

@@ -1,0 +1,41 @@
+{% extends 'WebEngineBundle::layout.html.twig' %}
+{% block title %}
+    CMS
+{% endblock %}
+{% block javascript_extend %}
+    <script type="text/javascript" src="{{ asset('bundles/usermanager/js/messenger_two_button_constructor.js') }}"></script>
+{% endblock %}
+{% block content %}
+    <h2>Редактирование пункта меню</h2>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('web_engine_cms_navigation') }}">
+                Назад к навигации
+            </a>
+        </li>
+        <li>
+            <a href="delete">
+                Удалить
+            </a>
+        </li>
+        <li style="display: none;">{{ form(delete_form) }}</li>
+    </ul>
+
+    <div class="form_no_table">
+        {{ form(edit_form) }}
+    </div>
+
+    <script type="text/javascript">
+        var dialog = messenger_two_button_constructor('#deleteIddialog');
+        $('a[href=delete]').click(function(e){
+            e.preventDefault();
+            dialog.alert('Удаление пункта меню', 'Вы действительно хотите удалить выбранный элемент навигации? Вместе с ним будут удалены все дочерние элементы!', deleteSend);
+            return false;
+        });
+
+        function deleteSend()
+        {
+            $('#form_submit').click();
+        }
+    </script>
+{% endblock %}

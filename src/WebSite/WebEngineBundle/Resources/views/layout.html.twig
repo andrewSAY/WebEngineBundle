@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        Г(О)БУ ЦМОКО | Официальный сайт ->
+        {% block title %}
+        {% endblock %}
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="{{ asset('bundles/webengine/css/style.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('bundles/webengine/css/form_no_table.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('bundles/webengine/css/form_table.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('bundles/webengine/libs/jui1_11/jquery-ui.min.css') }}" rel="stylesheet" type="text/css"/>
+    {% block stylesheets_extend %}
+    {% endblock %}
+    <script type="text/javascript" src="{{ asset('bundles/webengine/libs/jquery-1.10.1.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/webengine/libs/jui1_11/jquery-ui.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/webengine/js/side_menu_activate.js') }}"></script>
+    {% block javascript_extend %}
+    {% endblock %}
+</head>
+<body>
+<div class="main">
+    <div class="header">
+        <div class="header_resize">
+            <div class="logo">
+                <h1><a href="#">Г(О)БУ<span>Центр мониторинга и оценки качества образования</span></a>
+                    <small>региональный центр обработки информации</small>
+                </h1>
+            </div>
+            <div class="clr"></div>
+            <div class="clr"></div>
+            <div class="clr"></div>
+            <div class="clr"></div>
+            <div class="menu_nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="support.html">РСОКО</a></li>
+                    <li><a href="about.html">Экспертиза образовтельной деятельности</a></li>
+                    <li><a href="blog.html">Аттестация педагогических кадров</a></li>
+                    <li><a href="contact.html">Мониторинг</a></li>
+                    <li class="active"><a href="contact.html">Государственная итоговая аттестация</a></li>
+                </ul>
+            </div>
+            <div class="clr"></div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content_resize">
+            {% block content %}
+            {% endblock %}
+            {% block side_panel %}
+            {% endblock %}
+    </div>
+    <div class="fbg">
+        <div class="fbg_resize">
+            <div class="col c1">
+                <h2><span>Наши ссылки</span></h2>
+                <a href="http://deptno.lipetsk.ru/" title="Управление образования и науки Липецкой области"
+                   target="_blank">
+                    <img src="{{ asset('bundles/webengine/img/banners/baner_UOiNLO.png') }}" class="banner_height"/>
+                </a>
+                <a href="http://www.eduniko.ru/" title="Национальные исследования качества образования" target="_blank">
+                    <img src="{{ asset('bundles/webengine/img/banners/nikko.png') }}" class="banner_height"/>
+                </a>
+                <a href="http://www.obrnadzor.gov.ru/" title="Федеральная служба по надзору в сфере образования и науки"
+                   target="_blank">
+                    <img src="{{ asset('bundles/webengine/img/banners/rosobr.gif') }}" class="banner_height"/>
+                </a>
+                <a href="http://www.ege.edu.ru/"
+                   title="Официальный информационный портал единого государственного экзамена" target="_blank">
+                    <img src="{{ asset('bundles/webengine/img/banners/ege2014.gif') }}" class="banner_long"/>
+                </a>
+                <a href="http://www.gia.edu.ru/"
+                   title="Официальный информационный портал основного государственного экзамена" target="_blank">
+                    <img src="{{ asset('bundles/webengine/img/banners/gia2014.gif') }}" class="banner_long"/>
+                </a>
+            </div>
+
+            <div class="col c2">
+                <h2><span>Lorem Ipsum</span></h2>
+
+                <p>Lorem ipsum dolor<br/>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras
+                    id urna. <a href="#">Morbi tincidunt, orci ac convallis aliquam</a>, lectus turpis varius lorem, eu
+                    posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum odio,
+                    ac blandit ante orci ut diam.</p>
+            </div>
+            <div class="col c3">
+                <h2><span>Наши контакты</span></h2>
+
+                <p><a href="#">rcoi@obluno.lipetsk.su</a></p>
+
+                <p>(4742)34-75-09<br/>
+                    (4742)36-29-47</p>
+
+                <p>Адрес: 398035 Г(О)БУ ЦМОКО, г. Липецк, ул. Циолковского, д. 18</p>
+            </div>
+            <div class="clr"></div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer_resize">
+            <p class="lf">Copyright &copy; <a href="http://cmoko48.lipetsk.ru/">Центр мониторинга и оценки качества
+                    образования, г. Липецк</a>. Все права защищены</p>
+
+            <p class="rf">Get More <a target="_blank" href="http://www.free-css.com/">Free CSS Templates</a> by <a
+                        target="_blank" href="http://www.rocketwebsitetemplates.com/">RocketWebsiteTemplates</a></p>
+
+            <div class="clr"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        try
+        {
+            side_menu_activate();
+            mainUserManager();
+        }
+        catch(exc)
+        {
+        }
+    });
+</script>
+</body>
+</html>

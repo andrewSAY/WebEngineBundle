@@ -1,0 +1,104 @@
+.html_illuminator_container
+{
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 500px;
+}
+
+.html_illuminator_container>div>a
+{
+    text-decoration: none;
+    font-size: 15px;
+    margin-left: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #0000BB;
+}
+
+.html_illuminator_container>div>a.active
+{
+    text-decoration: none;
+    font-size: 15px;
+    margin-left: 15px;
+    color: #fff;
+    background-color: #0000BB;
+}
+
+.html_illuminator_container>div>a:hover
+{
+    color: #407dcb;
+}
+
+
+.html_illuminator_container div.html_illuminator_edit_window
+{
+    position: absolute;
+    display: none;
+}
+
+.html_illuminator_container div.html_illuminator_edit_window div .html_illuminator_text
+{
+    width: 1000px;
+    min-height: 500px;
+    background-color: #fff;
+    font-size: 15px;
+    /*font-family: 'Ubuntu', Arial, Helvetica, sans-serif;*/
+}
+
+.html_illuminator_container div.html_illuminator_edit_window div
+{
+    background-color: #3a351c;
+    padding: 10px 10px 10px 10px;
+}
+
+.html_illuminator_container div.html_illuminator_edit_window div div.html_illuminator_control_panel
+{
+   text-align: right;
+}
+
+.html_illuminator_container div.html_illuminator_edit_window div div.html_illuminator_control_panel button
+{
+    cursor: pointer;
+}
+
+.html_illuminator_container div.html_illuminator_view
+{
+    width: 700px;
+    min-height: 700px;
+    border: 1px solid #0000BB;
+}
+
+.html_illuminator_container .tag
+{
+    color: #880000;
+}
+
+.html_illuminator_container .comment, .html_illuminator_container .comment>span.tag
+{
+    color: #5a9541;
+    font-style: italic;
+}
+
+.tag_container
+{
+    margin-left: 10px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    cursor: pointer;
+}
+
+.comment_container
+{
+    background-color: #c8cb91;
+}
+
+.tag_container:hover
+{
+    border: 2px solid #5a9541;
+}
+
+.tag_container .tag:hover
+{
+    border: 1px solid #5a9541;
+}

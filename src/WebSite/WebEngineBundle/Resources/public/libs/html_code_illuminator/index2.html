@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="plugin.js"></script>
+    <script src="jquery-1.11.3.js"></script>
+</head>
+<body>
+<textarea style="width: 500px;height: 500px">
+    <p>С 15.06.2014 г. вступил в действие Порядок проведения аттестации педагогических работников организаций,
+        осуществляющих образовательную деятельность, утвержденный приказом Министерства образования и науки Российской
+        Федерации от 07.04.2014 № 276 «Об утверждении Порядка проведения аттестации педагогических работников
+        организаций, осуществляющих образовательную деятельность».</p>
+
+    <p>Обращаем Ваше внимание, что изменились:</p>
+
+    <p>• форма заявления на аттестацию;<br/>
+        • форма аналитического отчета;<br/>
+        • аттестационные процедуры.</p>
+
+    <p>При подаче заявления предоставляются копии следующих документов:</p>
+
+    <p>• копия трудовой книжки;<br/>
+        • копия документа об образовании;<br/>
+        • копия аттестационного листа предыдущей аттестации;<br/>
+        • копии документов, подтверждающих повышение квалификации в межаттестационный период;<br/>
+        • копии документов, дающих основания на особые формы аттестации (копии удостоверения к отраслевым и
+        государственным наградам и др.).</p>
+
+    <p><strong>* Все копии заверяются работодателем.</strong></p>
+</textarea>
+<input type="text" style="width: 520px" value="(<br.*?>)"/>
+<button>Go>>>></button>
+<h3>Matches count <span id="count"></span></h3>
+<ul id="matches">
+
+</ul>
+
+<script type="text/javascript">
+    $('button').click(function () {
+        var pattern = $('input').val();
+        var regexp = new RegExp('<br.*?>', 'gi');
+        var text = $('textarea').val();
+        $('#matches').empty();
+        var matches = text.match(regexp);
+        //alert(print_object(regexp));
+         text = text.replace(regexp, function(m){
+            $('#matches').append($('<li>').text(m));
+            return '<NOT_BR>';
+        });
+
+        $('textarea').val(text);
+
+        $('#count').text($('#matches').find('li').length);
+    });
+
+    function print_object(event) {
+        var s = '{\n';
+        for (
+                var p in event)
+            s += '    "' + p + '": "' + event[p] + '"\n';
+        return s + '}';
+    }
+</script>
+</body>
+</html>

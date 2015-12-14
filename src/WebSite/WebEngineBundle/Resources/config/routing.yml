@@ -1,0 +1,12 @@
+web_engine_page:
+    path:    /{page}
+    defaults: { _controller: WebEngineBundle:Default:pageShow }
+web_engine_homepage:
+    path:     /
+    defaults: { _controller: WebEngineBundle:Default:index }
+web_engine_cms_navigation:
+    prefix: /cms/navigation
+    resource: "@WebEngineBundle/Resources/config/navigation.yml"
+web_engine_cms_content:
+    prefix: /cms/content
+    resource: "@WebEngineBundle/Resources/config/content.yml"

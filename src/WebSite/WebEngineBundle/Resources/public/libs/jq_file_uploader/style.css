@@ -1,0 +1,155 @@
+.jq_file_uploader
+{
+    width: 300px;
+}
+
+.jq_file_uploader ul.buttons
+{
+    display: inline;
+    list-style: none;
+    padding-left: 5px;
+    margin-top: 0px;
+    width: 300px;
+}
+
+.jq_file_uploader .buttons .choice_file
+{
+    width: 100%;
+    height: 50px;
+    background-color: #59a6cb;
+    color: #fff;
+    font-size: 120%;
+    cursor: pointer;
+    text-align: center;
+    padding: 20px 20px 20px 20px;
+
+}
+
+.jq_file_uploader .buttons .drag_hover
+{
+    border: dashed 5px #d7f5ff;
+}
+
+.jq_file_uploader .buttons .choice_file:hover
+{
+    background-color: #6cd3ff;
+}
+
+.jq_file_uploader .buttons .button_upload_file
+ {
+     cursor: pointer;
+     padding: 20px 20px 20px 20px;
+     background-color: #ff9e6a;
+     color: #fff;
+     font-weight: bold;
+     width: 100%;
+ }
+
+.jq_file_uploader .buttons .button_upload_file:hover
+{
+    background-color: #ff8167;
+}
+
+.jq_file_uploader .error_message
+{
+    cursor: pointer;
+    padding: 50px 50px 50px 50px;
+    border: solid 2px #ff1343;
+    background-color: #ffaec0;
+    color: #ff0041;
+}
+
+.jq_file_uploader .max_size
+{
+    background-color: #c9ffb9;
+    padding: 10px 20px 10px 20px;
+    text-align: center;
+    font-size: 85%;
+    width: 100%;
+}
+
+.jq_file_uploader .progress_container
+{
+    width: 300px;
+    text-align: center;
+    padding: 2px 2px 2px 2px;
+    border: 1px solid #0f0074;
+}
+
+.jq_file_uploader .progress_container .progress_value
+{
+    width: 0px;
+    min-height: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #a8ffc2;
+}
+
+
+.jq_file_uploader .file_list
+{
+    width: 100%;
+}
+
+.jq_file_uploader .file_list>li
+{
+    margin: 5px 5px 5px 5px;
+}
+
+.jq_file_uploader .file_link
+ {
+     padding: 5px 5px 5px 5px;
+     margin-right: 3px;
+     margin-bottom: 3px;
+     background-color: #3667d5;
+     cursor: pointer;
+     text-decoration: none;
+     color: #fff;
+ }
+
+.jq_file_uploader .file_link:hover
+{
+    background-color: #3d77ff;
+}
+
+.jq_file_uploader .file_delete_link
+ {
+     padding: 5px 5px 5px 5px;
+     background-color: #a31d24;
+     margin-right: 3px;
+     margin-bottom: 3px;
+     cursor: pointer;
+     text-decoration: none;
+     color: #fff;
+ }
+
+.jq_file_uploader .file_delete_link:hover
+{
+    background-color: #ec2c36;
+}
+
+.jq_file_uploader .file_delete_cancel
+{
+    padding: 5px 5px 5px 5px;
+    background-color: #ecb340;
+    margin-bottom: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+}
+
+.jq_file_uploader .file_delete_cancel:hover
+{
+    background-color: #ffc346;
+}
+
+.jq_file_uploader .file_delete_process
+{
+    padding: 5px 5px 5px 5px;
+    background-color: #ff973e;
+    margin-bottom: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+}
+

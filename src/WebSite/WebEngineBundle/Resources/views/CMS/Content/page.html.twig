@@ -1,0 +1,142 @@
+{% extends 'WebEngineBundle::layout.html.twig' %}
+{% form_theme form 'form_table_layout.html.twig' %}
+{% block title %}
+    CMS
+{% endblock %}
+{% block stylesheets_extend %}
+    <link rel="stylesheet" href="{{ asset('bundles/webengine/libs/html_code_illuminator/style.css') }}"
+          type="text/css" media="all"/>
+    <link rel="stylesheet" href="{{ asset('bundles/webengine/libs/jq-ui-datetimepicker-addon/style.css') }}"
+          type="text/css" media="all"/>
+    <link rel="stylesheet" href="{{ asset('bundles/webengine/libs/codemirror-5.7/lib/codemirror.css') }}"
+          type="text/css" media="all"/>
+   <!-- <link rel="stylesheet" href="{{ asset('bundles/webengine/libs/codemirror-5.7/doc/docs.css') }}"-->
+          type="text/css" media="all"/>
+    <link rel="stylesheet" href="{{ asset('bundles/webengine/libs/codemirror-5.7/theme/night.css') }}"
+          type="text/css" media="all"/>
+    <link rel="stylesheet" href="{{ asset('bundles/webengine/libs/codemirror-5.7/theme/solarized.css') }}"
+          type="text/css" media="all"/>
+    <link rel="stylesheet" href="{{ asset('bundles/webengine/libs/codemirror-5.7/theme/ambiance.css') }}"
+          type="text/css" media="all"/>
+{% endblock %}
+{% block javascript_extend %}
+    <script type="text/javascript"
+            src="{{ asset('bundles/usermanager/lib/dataTables1.10.5/js/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/usermanager/js/form_dialog_construct.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/usermanager/js/error_dialog_construct.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/webengine/libs/jq-ui-datetimepicker-addon/core.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/webengine/libs/html_code_illuminator/plugin.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/usermanager/js/messenger_two_button_constructor.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/webengine/libs/codemirror-5.7/lib/codemirror.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/webengine/libs/codemirror-5.7/addon/selection/active-line.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/webengine/libs/codemirror-5.7/addon/selection/selection-pointer.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/webengine/libs/codemirror-5.7/addon/edit/matchbrackets.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/webengine/libs/codemirror-5.7/mode/xml/xml.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/webengine/libs/codemirror-5.7/mode/javascript/javascript.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/webengine/libs/codemirror-5.7/mode/css/css.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/webengine/libs/codemirror-5.7/mode/vbscript/vbscript.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/webengine/libs/codemirror-5.7/mode/htmlmixed/htmlmixed.js') }}"></script>
+{% endblock %}
+{% block content %}
+    <h2>{% if(entity.id == 0) %}
+            Новая страница
+        {% else %}
+            Редактирование страницы
+        {% endif %}
+    </h2>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('web_engine_cms_content', { 'type': 'page' } ) }}">
+                Назад к списку
+            </a>
+        </li>
+        {% if(entity.id > 0) %}
+            <li>
+                <a href="delete">
+                    Удалить
+                </a>
+            </li>
+            <li style="display: none;">{{ form(delete_form) }}</li>
+        {% endif %}
+    </ul>
+    <div class="form_table">
+        {{ form(form) }}
+    </div>
+    <script type="text/javascript">
+        $('#website_webenginebundle_content_datePublication').datetimepicker({
+            timeOnlyTitle: 'Выберите время',
+            timeText: 'Время',
+            hourText: 'Часы',
+            minuteText: 'Минуты',
+            secondText: 'Секунды',
+            currentText: 'Сейчас',
+            closeText: 'Закрыть',
+            timeFormat: 'HH:mm',
+            dateFormat: 'dd.mm.yy'
+        });
+        $('#website_webenginebundle_content_dateHidden').datetimepicker({
+            timeOnlyTitle: 'Выберите время',
+            timeText: 'Время',
+            hourText: 'Часы',
+            minuteText: 'Минуты',
+            secondText: 'Секунды',
+            currentText: 'Сейчас',
+            closeText: 'Закрыть',
+            timeFormat: 'HH:mm',
+            dateFormat: 'dd.mm.yy'
+        });
+
+        /*$('#website_webenginebundle_content_body').hide().before($('<div>').attr('id', 'editor'));
+        var editor = new html_illuminator('#editor', $('#website_webenginebundle_content_body').val(), {
+            onApplyChanges: function (e, code) {
+                $('#website_webenginebundle_content_body').val(code);
+            }
+        });*/
+
+        var button = $($('<a href="#">')).text('Preview');
+        $('#website_webenginebundle_content_body').before(button);
+        var editor = CodeMirror.fromTextArea($('#website_webenginebundle_content_body').get(0),{
+            value: $('#website_webenginebundle_content_body').val(),
+            lineNumbers: true,
+            styleActiveLine: true,
+            matchBrackets: true,
+            mode: "htmlmixed",
+            theme: 'ambiance'
+        });
+
+        button.click(function(e){
+            e.preventDefault();
+            if($(this).text() == 'Preview')
+            {
+                $('.CodeMirror').fadeOut(400);
+                $(this).text('Code');
+            }
+            else if($(this).text() == 'Code')
+            {
+                $('.CodeMirror').fadeIn(400);
+                $(this).text('Preview');
+            }
+            return false;
+        });
+
+
+
+
+        var dialog = messenger_two_button_constructor('#deleteIddialog');
+        $('a[href=delete]').click(function (e) {
+            e.preventDefault();
+            dialog.alert('Удаление страницы', 'Вы действительно хотите удалить выбранную страницу?', deleteSend);
+            return false;
+        });
+
+        function deleteSend()
+        {
+            $('#form_submit').click();
+        }
+
+    </script>
+
+
+{% endblock %}

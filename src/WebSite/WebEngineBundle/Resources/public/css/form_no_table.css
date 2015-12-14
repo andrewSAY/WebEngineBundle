@@ -1,0 +1,92 @@
+.form_no_table {
+    padding: 20px 20px 20px 20px;
+}
+
+.form_no_table form div {
+    margin-bottom: 25px;
+    max-width: 400px;
+}
+
+.form_no_table form div div div {
+    max-width: 400px;
+    display: block;
+    float: none;
+    padding-top: 55px;
+}
+
+.form_no_table form div div div input[type=checkbox] + label {
+    display: block;
+    margin-left: 0px;
+}
+
+.form_no_table form div div div label {
+    float: none;
+    cursor: pointer;
+    max-width: 300px;
+    min-width: 300px;
+}
+
+.form_no_table form div div div input[type=checkbox] {
+    float: left;
+}
+
+.form_no_table form div div label + input, label + select {
+    display: block;
+}
+
+.form_no_table form div div label:hover, input:hover, select:hover, label:hover + input:hover, label:hover + select:hover {
+    background-color: #a8f2ff;
+    cursor: pointer;
+}
+
+.form_no_table form div div label {
+    float: left;
+}
+
+.form_no_table form div div input, .form_no_table form div div select, .form_no_table form div div textarea {
+    float: none;
+}
+
+.form_no_table form div div label {
+    font-size: 125%;
+    max-width: 150px;
+    min-width: 150px;
+}
+
+.form_no_table form div div ul {
+    display: inline;
+    list-style: none;
+    color: #ff0b23;
+    font-size: 90%;
+    float: right;
+}
+
+.form_no_table form div div input, .form_no_table form div div select, .form_no_table form div div textarea {
+    font-size: 110%;
+    width: 300px;
+    margin-left: 15px;
+    border: 2px solid #677cad;
+    background-color: #d3e4ff;
+}
+
+.form_no_table form div div input[type=checkbox] {
+    margin-left: 0px;
+    width: 50px;
+}
+
+.form_no_table form div div button[type=submit] {
+    width: 100px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 125%;
+    font-weight: normal;
+    margin-left: 400px;
+    border: 1px solid #ff7f48;
+    background-color: #ffb0a0;
+    cursor: pointer;
+}
+
+.form_no_table form div div button[type=submit]:hover {
+    color: #fff;
+    border-color: #fff;
+}

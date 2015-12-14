@@ -1,0 +1,90 @@
+{% extends 'WebEngineBundle::layout.html.twig' %}
+{% block title %}
+    CMS
+{% endblock %}
+{% block stylesheets_extend %}
+    <link rel="stylesheet" href="{{ asset('bundles/usermanager/lib/dataTables1.10.5/css/jquery.dataTables.min.css') }}"
+          type="text/css" media="all"/>
+{% endblock %}
+{% block javascript_extend %}
+    <script type="text/javascript" src="{{ asset('bundles/usermanager/lib/dataTables1.10.5/js/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/usermanager/js/form_dialog_construct.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/usermanager/js/error_dialog_construct.js') }}"></script>
+{% endblock %}
+{% block content %}
+        {% if type == 'page' %}
+            <h2>
+            Страницы
+
+    </h2>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Имя для ссылки</th>
+                <th>Заголовок</th>
+                <th>Подпись</th>
+                <th>Создана</th>
+                <th>Изменена</th>
+                <th>Опубликована</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('web_engine_cms_content_edit', { 'id': entity.id }) }}">{{ entity.link }}</a></td>
+                <td>{{ entity.title }}</td>
+                <td>{{ entity.caption }}</td>
+                <td>{% if entity.dateCreate %}{{ entity.dateCreate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateUpdate %}{{ entity.dateUpdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.datePublication %}{{ entity.datePublication|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    {% if type == 'news' %}
+        <h2>
+            Новости
+        </h2>
+
+        <table class="records_list">
+            <thead>
+            <tr>
+                <th>Заголовок</th>
+                <th>Создана</th>
+                <th>Изменена</th>
+                <th>Опубликована</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('web_engine_cms_content_edit', { 'id': entity.id }) }}">{{ entity.title }}</a></td>
+                    <td>{% if entity.dateCreate %}{{ entity.dateCreate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if entity.dateUpdate %}{{ entity.dateUpdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if entity.datePublication %}{{ entity.datePublication|date('Y-m-d H:i:s') }}{% endif %}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+        <ul class="record_actions">
+        <li>
+            <a href="{{ path('web_engine_cms_content_new', { 'type': type }) }}">
+                Создать
+            </a>
+        </li>
+    </ul>
+
+    <script type="text/javascript">
+        $('.records_list').DataTable({
+            language: {
+                url: '/bundles/usermanager/lib/dataTables1.10.5/translations/dataTable.ru.translate'
+            },
+            lengthMenu: [25, 50,100],
+            autoWidth: true
+        });
+    </script>
+    {% endblock %}

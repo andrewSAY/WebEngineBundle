@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="plugin_2.js"></script>
+    <script src="jquery-1.11.3.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="editor"></div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        var editor = new html_illuminator('#editor');
+    });
+
+    function print_object(event) {
+        var s = '{\n';
+        for (
+                var p in event)
+            s += '    "' + p + '": "' + event[p] + '"\n';
+        return s + '}';
+    }
+
+</script>
+</body>
+</html>

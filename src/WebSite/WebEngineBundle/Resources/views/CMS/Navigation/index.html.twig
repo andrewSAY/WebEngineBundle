@@ -1,0 +1,39 @@
+{% extends 'WebEngineBundle::layout.html.twig' %}
+{% block title %}
+    CMS
+{% endblock %}
+{% block stylesheets_extend %}
+    <link rel="stylesheet" href="{{ asset('bundles/usermanager/lib/jqTree-1.0.0.2/jqtree.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('bundles/webengine/css/navigation_tree.css') }}" type="text/css" media="all" />
+{% endblock %}
+{% block javascript_extend %}
+    <script type="text/javascript" src="{{ asset('bundles/usermanager/lib/jqTree-1.0.0.2/tree.jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/usermanager/js/form_dialog_construct.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/usermanager/js/error_dialog_construct.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/webengine/js/tree_view_nav_constructor.js') }}"></script>
+{% endblock %}
+{% block content %}
+    <h2>Навигация</h2>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('web_engine_cms_navigation_new') }}">
+                Новый пункт меню
+            </a>
+        </li>
+        <li style="display: none;">
+            {{ form(move_form) }}
+        </li>
+    </ul>
+    <div id="tree" class="navigation_tree"></div>
+    <div id="formDialog"></div>
+    <div id="errorDialog"></div>
+    <br/>
+    <script>
+        var dataTree = {% autoescape false %}'{{ json }}'{% endautoescape %};
+        var formDialog = form_dialog_construct('#formDialog', '#errorDialog', function(){});
+        var tree = tree_view_group_constructor('#tree', formDialog);
+
+        tree.applyTree();
+        tree.loadDataOnTree(dataTree);
+    </script>
+{% endblock %}

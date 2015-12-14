@@ -1,0 +1,44 @@
+.form_table {
+    padding: 20px 20px 20px 20px;
+}
+
+
+.form_table form table  input, .form_table form table select, .form_table form table textarea {
+    font-size: 110%;
+    width: 500px;
+    margin-left: 15px;
+    border: 2px solid #677cad;
+    background-color: #d3e4ff;
+}
+
+.form_table form table ul
+{
+    list-style: none;
+    color: #cb2920;
+}
+
+.form_table form table textarea {
+    height: 500px;
+}
+
+.form_table form  input[type=checkbox] {
+    margin-left: 0px;
+    width: 50px;
+}
+
+.form_table form  button[type=submit] {
+    width: 100px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 125%;
+    font-weight: normal;
+    margin-left: 400px;
+    border: 1px solid #ff7f48;
+    background-color: #ffb0a0;
+    cursor: pointer;
+}
+
+.form_table form  button[type=submit]:hover {
+    color: #fff;
+    border-color: #fff;
+}

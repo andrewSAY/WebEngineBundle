@@ -1,0 +1,4 @@
+services:
+#    web_engine.example:
+#        class: WebSite\WebEngineBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
